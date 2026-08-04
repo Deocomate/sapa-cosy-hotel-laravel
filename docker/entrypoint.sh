@@ -12,7 +12,7 @@ echo "========================================"
 echo "[entrypoint] Waiting for MySQL connection..."
 max_retries=30
 counter=0
-until php artisan db:monitor --databases=mysql > /dev/null 2>&1 || [ $counter -eq $max_retries ]; do
+until php -r "new PDO('mysql:host='.getenv('DB_HOST').';port='.getenv('DB_PORT').';dbname='.getenv('DB_DATABASE'), getenv('DB_USERNAME'), getenv('DB_PASSWORD'));" > /dev/null 2>&1 || [ $counter -eq $max_retries ]; do
     echo "[entrypoint] MySQL not ready yet... retry $((counter+1))/$max_retries"
     sleep 2
     counter=$((counter+1))
@@ -28,6 +28,11 @@ echo "[entrypoint] MySQL is ready!"
 # ---------------------------------------------------------------------------
 # Laravel Setup
 # ---------------------------------------------------------------------------
+
+# Ensure required storage and bootstrap directories exist with correct permissions on mounted volume
+mkdir -p storage/app/public storage/framework/cache/data storage/framework/sessions storage/framework/views storage/logs bootstrap/cache
+chown -R www-data:www-data storage bootstrap/cache 2>/dev/null || true
+chmod -R 775 storage bootstrap/cache 2>/dev/null || true
 
 # Clean any stale bootstrap cache from host
 rm -f bootstrap/cache/packages.php bootstrap/cache/services.php bootstrap/cache/config.php bootstrap/cache/routes.php

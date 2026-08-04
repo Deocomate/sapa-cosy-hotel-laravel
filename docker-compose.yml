@@ -61,14 +61,16 @@ services:
     expose:
       - "3306"
     environment:
-      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-admin}"
+      MYSQL_ROOT_PASSWORD: "${DB_PASSWORD:-secret}"
       MYSQL_DATABASE: "${DB_DATABASE:-db_sapacosyhotel}"
+      MYSQL_USER: "${DB_USERNAME:-sapacosyhotel}"
+      MYSQL_PASSWORD: "${DB_PASSWORD:-secret}"
     volumes:
       - mysql_data:/var/lib/mysql
     networks:
       - sapacosyhotel-network
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-p${DB_PASSWORD:-admin}"]
+      test: ["CMD", "mysqladmin", "ping", "-h", "127.0.0.1", "-u", "root", "-p${DB_PASSWORD:-secret}"]
       interval: 5s
       timeout: 5s
       retries: 10
