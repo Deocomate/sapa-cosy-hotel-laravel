@@ -1,0 +1,449 @@
+/* Luxury Custom Stylesheet for Sapa Cosy Hotel */
+:root {
+  --gold-primary: #c5a880;
+  --gold-hover: #b39369;
+  --gold-dark: #8e6d42;
+  --gold-light: rgba(197, 168, 128, 0.15);
+  --gold-border: rgba(197, 168, 128, 0.35);
+  --dark-navy: #151922;
+  --dark-charcoal: #232834;
+  --cream-bg: #fbf9f6;
+  --transition-smooth: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  
+  /* Synchronized Site-Wide Typography Variables */
+  --font-heading: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  --font-body: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  --glida: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+  --jost: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif;
+}
+
+/* Global Font Synchronization (100% Full Vietnamese Diacritics Support) */
+*, *::before, *::after,
+html, body, p, span, a, li, input, select, textarea, button,
+div, label, table, tr, td, th,
+.font-sm, .font-xs, .font-20, .description, .card-text, .single__blog__meta,
+.subtitle__icon, .subtitle__icon__two, .subtitle__icon__three {
+  font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif !important;
+}
+
+/* Headings & Title Synchronization */
+h1, h2, h3, h4, h5, h6,
+.h1, .h2, .h3, .h4, .h5, .h6,
+.section__title, .content__title, .banner__slide__content h1, .widget__title,
+.luxury-card-title, .room__title, .card-title, .single__blog__meta a,
+.room__card__title, .single__post__meta a, .readmore a {
+  font-family: 'Plus Jakarta Sans', 'Be Vietnam Pro', sans-serif !important;
+  font-weight: 700 !important;
+  letter-spacing: -0.3px;
+}
+
+/* Strict Rule: All Card & Component Border-Radius MUST be < 5px (4px), except circular elements */
+.card,
+.luxury-card,
+.img-zoom-wrapper,
+.modal-content,
+.form-control,
+.btn,
+.btn-gold,
+.btn-gold-outline,
+.sticky-sidebar-card,
+.amenity-chip,
+.luxury-badge,
+.breadcrumb-custom,
+.single__blog,
+.single__service__item,
+.room__slide__box,
+.gallery__item,
+.single__offer__card,
+.rounded,
+.rounded-1,
+.rounded-2,
+.rounded-3,
+.rounded-4,
+.rounded-5,
+.radius-6,
+.radius-8,
+.radius-10,
+.radius-12,
+.radius-16 {
+  border-radius: 4px !important;
+}
+
+/* Exception only for circular elements */
+.rounded-circle,
+.circle,
+.rts__circle,
+.author__icon img,
+#rts-back-to-top,
+.back-to-top-btn,
+#backToTopBtn {
+  border-radius: 50% !important;
+}
+
+/* Accessibility: Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 20px;
+  background: var(--dark-navy);
+  color: #ffffff;
+  padding: 12px 24px;
+  z-index: 9999;
+  border-radius: 4px !important;
+  transition: top 0.2s ease;
+  font-weight: 500;
+  text-decoration: none;
+}
+.skip-link:focus {
+  top: 20px;
+  outline: 2px solid var(--gold-primary) !important;
+}
+
+/* Visible Focus outlines */
+:focus-visible {
+  outline: 2px solid var(--gold-primary) !important;
+  outline-offset: 3px !important;
+}
+
+/* Back to Top Button Styling (Circular Exception) */
+#rts-back-to-top,
+.back-to-top-btn,
+#backToTopBtn {
+  position: fixed !important;
+  bottom: 35px !important;
+  right: 35px !important;
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 50% !important;
+  background: var(--gold-primary) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25) !important;
+  cursor: pointer !important;
+  opacity: 0 !important;
+  visibility: hidden !important;
+  transform: translateY(15px) !important;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1) !important;
+  z-index: 99999 !important;
+  outline: none !important;
+}
+
+#rts-back-to-top.show,
+.back-to-top-btn.show,
+#backToTopBtn.show {
+  opacity: 1 !important;
+  visibility: visible !important;
+  transform: translateY(0) !important;
+}
+
+#rts-back-to-top:hover,
+.back-to-top-btn:hover,
+#backToTopBtn:hover {
+  background: var(--gold-hover) !important;
+  color: #ffffff !important;
+  transform: translateY(-4px) scale(1.06) !important;
+  box-shadow: 0 12px 30px rgba(197, 168, 128, 0.5) !important;
+}
+
+#rts-back-to-top svg,
+.back-to-top-btn svg,
+#backToTopBtn svg,
+#rts-back-to-top i,
+.back-to-top-btn i,
+#backToTopBtn i {
+  width: 20px !important;
+  height: 20px !important;
+  fill: none !important;
+  stroke: #ffffff !important;
+  stroke-width: 2.5px !important;
+  transition: transform 0.2s ease !important;
+}
+
+#rts-back-to-top:hover svg,
+.back-to-top-btn:hover svg,
+#backToTopBtn:hover svg {
+  transform: translateY(-2px) !important;
+}
+
+/* Smooth Image Hover Micro-interactions */
+.img-zoom-wrapper {
+  overflow: hidden;
+  border-radius: 4px !important;
+  position: relative;
+}
+.img-zoom-wrapper img {
+  transition: transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+  width: 100%;
+}
+.img-zoom-wrapper:hover img {
+  transform: scale(1.06);
+}
+
+/* Subpage Luxury Hero Banner (Used on Subpages Only) */
+.luxury-hero-banner {
+  position: relative;
+  padding: 110px 0 90px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #ffffff;
+  overflow: hidden;
+  border-radius: 0px !important;
+}
+.luxury-hero-banner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(21, 25, 34, 0.72) 0%, rgba(21, 25, 34, 0.88) 100%);
+  z-index: 1;
+}
+.luxury-hero-banner .container {
+  position: relative;
+  z-index: 2;
+}
+.luxury-hero-banner h1 {
+  font-size: 3rem;
+  font-weight: 700 !important;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  color: #ffffff;
+}
+.luxury-hero-banner p {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.1rem;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+/* Breadcrumb Navigation */
+.breadcrumb-custom {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(8px);
+  padding: 6px 20px;
+  border-radius: 4px !important;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+}
+.breadcrumb-custom a {
+  color: #ffffff;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.breadcrumb-custom a:hover {
+  color: var(--gold-primary);
+}
+.breadcrumb-custom .separator {
+  color: var(--gold-primary);
+  font-size: 0.8rem;
+}
+.breadcrumb-custom .active-page {
+  color: var(--gold-primary);
+  font-weight: 500;
+}
+
+/* Luxury Cards System */
+.luxury-card {
+  background: #ffffff;
+  border-radius: 4px !important;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.04);
+  transition: var(--transition-smooth);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.luxury-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  border-color: var(--gold-border);
+}
+.luxury-card-body {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+/* Horizontal Luxury Cards (Blog & News Lists) */
+.luxury-card-horizontal-img {
+  width: 100%;
+  height: 220px;
+  flex-shrink: 0;
+}
+.luxury-card-horizontal-img a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.luxury-card-horizontal-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .luxury-card-horizontal-img {
+    width: 280px;
+    height: auto !important;
+    min-height: 100%;
+    align-self: stretch;
+  }
+}
+.luxury-card-title {
+  font-size: 1.3rem;
+  font-weight: 600 !important;
+  color: #1a1e26;
+  margin-bottom: 12px;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.luxury-card-title:hover {
+  color: var(--gold-primary);
+}
+.luxury-price-tag {
+  font-size: 1.4rem;
+  font-weight: 700 !important;
+  color: var(--gold-dark);
+}
+.luxury-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  border-radius: 4px !important;
+  background: var(--gold-light);
+  color: var(--gold-dark);
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+/* Buttons */
+.btn-gold {
+  background-color: var(--gold-primary);
+  color: #ffffff !important;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 4px !important;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+  cursor: pointer;
+}
+.btn-gold:hover {
+  background-color: var(--gold-hover);
+  color: #ffffff !important;
+  box-shadow: 0 8px 22px rgba(197, 168, 128, 0.45);
+  transform: translateY(-2px);
+}
+.btn-gold-outline {
+  background: transparent;
+  color: var(--gold-dark) !important;
+  border: 1px solid var(--gold-primary);
+  padding: 10px 24px;
+  border-radius: 4px !important;
+  font-weight: 600;
+  transition: var(--transition-smooth);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+}
+.btn-gold-outline:hover {
+  background: var(--gold-primary);
+  color: #ffffff !important;
+}
+
+/* Modal Booking Enhancements */
+.modal-luxury .modal-content {
+  border-radius: 4px !important;
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+}
+.modal-luxury .modal-header {
+  background: var(--dark-navy);
+  color: #ffffff;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 20px 28px;
+}
+.modal-luxury .modal-header .modal-title {
+  font-size: 1.4rem;
+  color: #ffffff;
+}
+.modal-luxury .modal-header .btn-close {
+  filter: invert(1);
+}
+.modal-luxury .modal-body {
+  padding: 28px;
+  background: #ffffff;
+}
+.modal-luxury .form-control {
+  border-radius: 4px !important;
+}
+
+/* Details Page Sticky Sidebar */
+.sticky-sidebar-card {
+  position: sticky;
+  top: 100px;
+  background: #ffffff;
+  border-radius: 4px !important;
+  padding: 28px;
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+.amenity-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  background: var(--cream-bg);
+  border-radius: 4px !important;
+  font-size: 0.9rem;
+  color: #1a1e26;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+/* Navigation Menu Links */
+.navigation__menu--item__link {
+  transition: color 0.3s ease;
+}
+.navigation__menu--item.active .navigation__menu--item__link {
+  color: var(--gold-primary) !important;
+}
+
+/* Responsive adjustments */
+@media (max-width: 991.98px) {
+  .luxury-hero-banner {
+    padding: 75px 0 55px;
+  }
+  .luxury-hero-banner h1 {
+    font-size: 2.1rem;
+  }
+  #rts-back-to-top,
+  .back-to-top-btn,
+  #backToTopBtn {
+    bottom: 20px !important;
+    right: 20px !important;
+    width: 44px !important;
+    height: 44px !important;
+  }
+}

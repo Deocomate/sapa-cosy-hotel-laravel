@@ -1,0 +1,63 @@
+# =============================================================================
+# Docker Ignore - Sapa Cosy Hotel
+# =============================================================================
+
+# Dependencies (rebuilt in Docker)
+/vendor
+/node_modules
+
+# Git
+.git
+.gitattributes
+.gitignore
+
+# Environment
+.env
+.env.backup
+.env.production
+
+# IDE
+.phpstorm.meta.php
+_ide_helper.php
+_ide_helper_models.php
+/.idea
+/.vscode
+/.fleet
+/.zed
+.editorconfig
+
+# Testing
+/tests
+phpunit.xml
+/.phpunit.cache
+.phpunit.result.cache
+
+# Storage (ephemeral)
+/storage/debugbar
+/storage/logs/*.log
+/storage/framework/cache/data/*
+/storage/framework/sessions/*
+/storage/framework/views/*.php
+
+# Build artifacts
+/public/build
+/public/hot
+/bootstrap/cache/*.php
+
+# Documentation
+/docs
+README.md
+console.txt
+
+# Docker (prevent recursive copy)
+docker-compose.yml
+docker-compose.*.yml
+Dockerfile
+
+# Agents/AI
+/.agents
+/.antigravityignore
+
+# OS files
+.DS_Store
+Thumbs.db
